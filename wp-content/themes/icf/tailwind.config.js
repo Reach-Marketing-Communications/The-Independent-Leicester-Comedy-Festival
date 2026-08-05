@@ -12,7 +12,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'copy': '#000000',
+                'copy': '#121826',
+                'icf-green': '#CCFF00',
+                'icf-blue': '#0066FF',
+                'icf-coral': '#FF6F61'
             }
         },
         screens: {
