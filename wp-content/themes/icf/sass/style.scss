@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*!
+Theme Name: Independent Comedy Festival
+Author: Reach Marketing 
+Author URI: https://www.reachmarketing.co.uk 
+*/
+
+/********
+ * Utility
+ **/
+@import "utility/fonts";
+
+/********
+ * Structure
+ **/
+@import "structure/general";
+@import "structure/header";
+@import "structure/footer";
