@@ -1,0 +1,42 @@
+div.content-section {
+    @apply col-span-12 grid grid-cols-12 gap-x-[15px] md:pb-[100px] pb-[50px];
+
+    .title {
+        @apply lg:col-span-10 col-span-12 bg-copy text-white font-owners font-bold lg:text-[40px] md:text-[36px] text-[30px] py-[0.1em] -ml-[100vw] pl-[100vw]; 
+    }
+
+    .content {
+        @apply lg:col-span-8 md:col-span-10 md:col-start-3 lg:col-start-3 col-span-12 bg-white relative px-[11.11111%] py-[3em];
+
+        .icon {
+            @apply absolute bottom-0 right-[5%] md:block hidden z-[10];
+        }
+
+        p, li {
+            @apply max-w-[730px] text-copy text-[20px] leading-[1.2em] mb-[0.75em] last:mb-0 relative z-[20];
+        }
+
+        li {
+            @apply relative pl-[15px] z-[20];
+
+            &:before {
+                @apply content-["•"] absolute top-0 left-0 text-[120%] z-[20];
+            }
+        }
+
+        a.primary {
+            @apply inline-block bg-white hover:bg-icf-coral border-copy border-[1px] relative z-[20];
+            
+            img {
+                @apply h-[30px] inline-block duration-300 ease-out transition-all;
+            }
+
+            &:hover {
+                img {
+                    @apply brightness-200 grayscale contrast-200;
+                }
+            }
+        }
+    }
+
+}

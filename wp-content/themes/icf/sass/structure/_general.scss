@@ -3,10 +3,66 @@ html, body {
 }
 
 body {
-    @apply text-copy text-[16px];
+    @apply text-copy text-[16px] pt-[120px] bg-icf-green;
 }
 
 .screen-reader-text {
     @apply hidden;
 }
 
+.inner-wrapper {
+    @apply max-w-[1770px] w-full lg:px-[75px] px-[30px] grid grid-cols-12 relative gap-[15px] mx-auto;
+}
+
+.section {
+    @apply bg-icf-green even:bg-icf-blue h-[75vh];
+}
+
+.splitWords, .splitLines, .splitChars, .fade, .fadeUp, .fadeVert, .fadeUpReverse, .widget, .fadeUpParagraphs p, .social-icons a, .animated-menu, .wpcf7-form-control-wrap {
+  @apply invisible;
+}
+
+a.primary {
+    @apply font-owners font-bold uppercase text-icf-blue block bg-icf-green px-[12px] pt-[13px] pb-[12px] text-[22px] leading-[1em] relative duration-300 ease-out transition-colors;
+
+    span {
+        @apply font-owners font-bold uppercase text-icf-coral duration-300 ease-out transition-colors;
+    }
+
+    &:before {
+        @apply content-[""] block absolute bottom-0 left-0 translate-y-full translate-x-[12px] w-full h-[12px] bg-copy duration-300 ease-out transition-colors;
+    }
+
+    &:after {
+        @apply content-[""] block absolute top-0 right-0 translate-x-full translate-y-[11px] w-[12px] h-full bg-copy duration-300 ease-out transition-colors;
+    }
+
+    &:hover {
+        @apply text-white bg-icf-coral;
+
+        span {
+            @apply text-white;
+        }
+
+        &:before, &:after {
+            @apply bg-icf-green;
+        }
+    }
+}
+
+.wpcf7-not-valid-tip {
+    @apply text-icf-green text-[16px] -mt-[10px];
+}
+
+.wpcf7-response-output {
+    @apply mx-0 border-0 bg-icf-green text-icf-blue !important;
+}
+
+.back-to-top {
+    @apply col-span-12 flex justify-end mt-[30px];
+
+    a {
+        @apply flex items-end leading-[0.5em] gap-[10px] text-icf-green text-[24px];
+    }
+}
+    

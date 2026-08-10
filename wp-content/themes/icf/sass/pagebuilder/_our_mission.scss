@@ -1,0 +1,43 @@
+section.our-mission {
+    @apply bg-icf-green lg:pb-[180px] md:pb-[150px] pb-[70px];
+
+    .inner-wrapper {
+
+        .top-section {
+            @apply bg-copy sm:col-span-10 col-span-12 -ml-[100vw] pl-[100vw] flex items-end justify-between mb-[5em];
+
+            .title {
+                @apply font-owners font-bold text-white text-[clamp(55px,8.2vw,147px)] leading-[0.8em] my-[0.4em];
+            }
+
+            .year {
+                @apply grow ml-[50px] translate-x-[10px];
+
+                .small-year {
+                    @apply text-icf-green font-owners font-bold text-[clamp(55px,9.25vw,147px)] leading-[0.7em] pl-[0.2em] border-b-[4px] border-b-icf-green pb-[0.2em] mb-[0.2em] mt-[2em];
+                }
+
+                .big-year {
+                    @apply text-icf-green font-owners font-bold text-[clamp(140px,22vw,370px)] leading-[0.7em] translate-y-[10px] translate-x-[10px];
+                }
+            }
+        }
+
+        .intro {
+            @apply md:col-span-10 col-span-12 md:col-start-3 bg-white px-[8.33333%] py-[4.5%] relative md:mb-[100px] mb-[50px];
+
+            &:before {
+                @apply content-[""] bg-copy h-[15px] w-full top-0 left-[8.33333%] absolute -translate-y-full
+            }
+
+            &:after {
+                @apply content-[""] bg-white h-full w-full top-0 right-0 absolute translate-x-full
+            }
+
+            p {
+                @apply max-w-[810px] text-copy lg:text-[36px] md:text-[30px] text-[24px] leading-[1.1em];
+            }
+        }
+
+    }
+}

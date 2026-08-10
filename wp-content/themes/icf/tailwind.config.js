@@ -16,7 +16,11 @@ module.exports = {
                 'icf-green': '#CCFF00',
                 'icf-blue': '#0066FF',
                 'icf-coral': '#FF6F61'
-            }
+            },
+            
+            fontFamily: {
+                owners: ['"Owners"', "sans-serif"]
+            },
         },
         screens: {
             xs: '320px',

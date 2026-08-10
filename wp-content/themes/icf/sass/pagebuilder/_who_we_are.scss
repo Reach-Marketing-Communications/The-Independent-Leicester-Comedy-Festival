@@ -1,0 +1,125 @@
+section.who-we-are {
+    @apply bg-icf-blue xl:pt-[240px] md:pt-[180px] pt-[100px] pb-[90px] overflow-y-clip;
+
+    .inner-wrapper {
+
+        @apply gap-y-0;
+
+        .background {
+            @apply absolute left-1/2  -top-[240px] w-[1300px] mix-blend-multiply z-10 opacity-[0.15];
+
+            img {
+                @apply w-full;
+            }
+        }
+
+        .left-column {
+            @apply xl:col-span-3 col-span-12 relative z-30 flex items-end;
+
+            h2.title {
+                @apply font-owners font-bold text-[white] text-[clamp(75px,9.25vw,147px)] leading-[0.7em] xl:-mb-[2px] mb-[1em];
+                br {
+                    @apply xl:block hidden;
+                }
+            }
+        }
+        
+        .people-wrapper {
+            @apply xl:col-span-4 md:col-span-6 col-span-12 relative z-30 flex lg:last:mr-[12.5%] last:mr-[17%];
+
+            &.top-wrapper {
+                @apply items-end;
+            }
+
+            .profile-image {
+                @apply max-w-[265px] relative;
+
+                &:after {
+                    @apply absolute content-[""] right-0 bottom-0 translate-x-full w-[40px] bg-copy h-[calc(100%-20px)];
+                }
+            }
+
+
+        }
+
+        .bottom {
+            @apply border-t-[15px] border-t-white relative bg-icf-green -ml-[15px] pl-[15px];
+        }
+
+        .left-column.bottom {
+            @apply -ml-[100vw] justify-end pr-[18%] xl:flex hidden;
+        }
+
+        .left-column .icon {
+            @apply max-h-[500px] relative translate-y-[1px] ;
+            
+        }
+
+        .alex-bio, .colin-bio {
+            @apply py-[50px];
+
+            .name {
+                @apply text-copy font-owners font-bold text-[clamp(30px,3.7vw,64px)] leading-[0.85em] mb-[0.5em];
+            }
+
+            .role, .email {
+                @apply text-[clamp(18px,1.4vw,24px)] text-copy leading-[1.3em];
+
+                a {
+                    @apply font-bold duration-300 ease-out transition-colors hover:text-icf-coral;
+                }
+            }
+
+            .bio {
+                @apply mt-[1em];
+
+                p {
+                    @apply mb-[1em] last:mb-0 text-[clamp(18px,1.4vw,20px)] leading-[1.3em] text-copy/85;
+                }
+
+            }
+        }
+
+        .alex-bio {
+            @apply md:pr-[12.5%] pr-[5%] relative xl:-ml-[15px] -ml-[100vw] justify-end xl:pl-0 pl-[100vw] md:mb-0 mb-[30px] md:mr-0 mr-[17%];
+
+            &:before {
+                @apply content-[""] absolute md:w-[calc(20%+5px)] w-[calc(9%+5px)] translate-x-full h-full right-[5px] top-0 bg-icf-green ;
+            }
+
+           
+        }
+
+        .colin-bio {
+            @apply pr-[5%] relative md:-ml-[15px] -ml-[30px] md:pl-[10px] pl-[30px];
+
+            &:before {
+                @apply content-[""] absolute w-[calc(20%+5px)] translate-x-full h-full right-[5px] top-0 bg-icf-green ;
+            }
+        }
+
+        .the-title {
+            @apply order-1;
+        }
+
+        .alex {
+            @apply order-2 md:order-2 -ml-[10px];
+        }
+
+        .colin {
+            @apply order-4 md:order-3;
+        }
+
+        .alex-bio {
+            @apply order-3 md:order-5;
+        }
+
+        .colin-bio {
+            @apply order-5 md:order-6;
+        }
+
+        .left-column.bottom {
+            @apply order-6 md:order-4;
+        }
+    }
+}

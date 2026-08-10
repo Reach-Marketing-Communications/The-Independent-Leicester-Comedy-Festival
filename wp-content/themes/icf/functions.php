@@ -56,7 +56,7 @@ function reach_assets()
     wp_enqueue_script('reach-scripts', get_template_directory_uri() . '/js/scripts.js?v=' . $version, array(), $version);
     wp_enqueue_script('gsap-js', 'https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js?v=' . $version, array(), false, true);
     wp_enqueue_script('gsap-js2', 'https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js?v=' . $version, array('gsap-js'), false, true);
-    wp_enqueue_script('gsap-js3', 'https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js?v=' . $version, array('gsap-js'), false, true);
+    wp_enqueue_script('gsap-js3', 'https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js?v=' . $version, array('gsap-js'), false, true);
     wp_enqueue_script('gsap-js5', 'https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollToPlugin.min.js?v=' . $version, array('gsap-js'), false, true);
     wp_enqueue_script('gsap-js6', get_template_directory_uri() . '/js/gsap.js?v=' . $version, array('gsap-js'), false, true);
 }
@@ -99,3 +99,15 @@ add_action('after_setup_theme', 'reach_register_custom_image_sizes');
 add_filter('wpseo_metabox_prio', function () {
     return 'low';
 });
+
+// add chevrons to submit buttons through CF7
+remove_action('wpcf7_init', 'wpcf7_add_form_tag_submit');
+add_action('wpcf7_init', 'my_add_form_tag_submit', 10, 0);
+
+function my_add_form_tag_submit() {
+    wpcf7_add_form_tag('submit', 'my_submit_form_tag_handler');
+}
+
+function my_submit_form_tag_handler($tag) {
+    return '<div class="wpcf7-form-control-wrap"><button type="submit" class="primary">Submit Enquiry</button></div>';
+}

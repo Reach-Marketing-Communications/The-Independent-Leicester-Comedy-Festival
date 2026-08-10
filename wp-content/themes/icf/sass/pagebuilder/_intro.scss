@@ -1,0 +1,102 @@
+section.intro {
+    @apply bg-icf-green border-t-[2px] border-t-icf-green bg-blend-multiply overflow-y-clip pb-[300px];
+
+    .inner-wrapper {
+        
+        .background {
+            @apply absolute left-[75px] -translate-y-[20%] w-[1656px] mix-blend-multiply z-10;
+
+            img {
+                @apply w-full;
+            }
+        }
+
+        .intro-block {
+            @apply md:col-span-7 lg:col-start-4 md:col-start-5 sm:col-span-10 sm:col-start-2 col-span-12 lg:pt-[130px] sm:pt-[80px] pt-[30px] relative z-20;
+
+            h1 {
+                @apply text-icf-blue text-[clamp(40px,5.728vw,104px)] font-bold leading-[1em] mb-[0.5em];
+
+                * {
+                    @apply font-owners;
+                }
+
+                span {
+                    @apply block md:text-[38.5%] text-[60%] md:-mb-[0.5em] -mb-[0.2em];
+                }
+            }
+
+            .intro-text p {
+                @apply text-copy text-[clamp(20px,1.448vw,29px)] leading-[1.2em] pb-[1.5em];
+
+                em {
+                    @apply not-italic text-icf-blue font-bold;
+                }
+            }
+
+            .widgets-wrapper {
+                @apply flex flex-wrap lg:flex-nowrap gap-[7%] lg:mb-[100px] mb-[30px] lg:-mr-[25%];
+            }
+        }
+
+        .promotor-block {
+            @apply xl:col-span-9 xl:col-start-4 md:col-start-3 md:col-span-10 col-span-12 relative z-20;
+
+            
+
+            .flyout {
+                @apply max-w-[720px] md:px-[60px] px-[30px] py-[35px] bg-icf-coral font-medium text-white lg:text-[30px] md:text-[26px] text-[24px] leading-[1.25em] md:-translate-x-[60px] -translate-x-[15px] relative translate-y-[35px] z-20;
+
+                &:before {
+                    @apply content-[""] block absolute bottom-0 right-0 translate-y-[calc(100%-1px)] md:translate-x-[30px] md:w-[calc(100%-30px)] w-[calc(100%-15px)] h-[31px] bg-copy duration-300 ease-out transition-colors;
+                }
+
+                &:after {
+                    @apply content-[""] block absolute bottom-0 right-0 translate-x-full translate-y-[30px] w-[30px] h-[65px] bg-copy duration-300 ease-out transition-colors;
+                }
+            }
+
+            .promotor {
+                @apply bg-icf-blue pt-[95px] lg:px-[65px] px-[30px] pb-[50px] relative;
+
+                &:after {
+                    @apply content-[""] block absolute top-0 right-0 w-full h-full translate-x-[calc(100%-5px)] bg-icf-blue;
+                }
+
+                strong {
+                    @apply font-owners font-bold lg:text-[40px] md:text-[36px] text-[28px] leading-[1.1em] text-white block mb-[0.75em];
+                }
+
+                @apply font-owners font-medium xl:text-[30px] lg:text-[24px] md:text-[20px] text-[24px] text-white;
+
+                a {
+                    @apply font-owners font-bold uppercase text-icf-blue bg-icf-green px-[25px] pt-[17px] pb-[16px] lg:text-[22px] min-[724px]:text-[18px] leading-[1em] relative duration-300 ease-out transition-colors min-[724px]:inline-block block max-w-[210px] mr-[20px] min-[724px]:ml-[10px] min-[724px]:my-0 mt-[8px] mb-[16px];
+
+                    span {
+                        @apply font-owners font-bold uppercase text-icf-coral duration-300 ease-out transition-colors;
+                    }
+
+                    &:before {
+                        @apply content-[""] block absolute bottom-0 left-0 translate-y-full translate-x-[12px] w-full h-[12px] bg-copy duration-300 ease-out transition-colors;
+                    }
+
+                    &:after {
+                        @apply content-[""] block absolute top-0 right-0 translate-x-full translate-y-[11px] w-[12px] h-full bg-copy duration-300 ease-out transition-colors;
+                    }
+
+                    &:hover {
+                        @apply text-white bg-icf-coral;
+
+                        span {
+                            @apply text-white;
+                        }
+
+                        &:before, &:after {
+                            @apply bg-icf-green;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

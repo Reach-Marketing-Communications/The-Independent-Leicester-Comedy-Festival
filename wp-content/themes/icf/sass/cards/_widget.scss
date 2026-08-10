@@ -1,0 +1,22 @@
+.widget {
+    @apply bg-icf-blue min-[1396px]:px-[30px] lg:px-[3.5%] py-[30px] px-[30px] flex flex-col justify-between max-w-[420px] w-full lg:mb-0 mb-[30px];
+
+    .text-box {
+
+        .title {
+            @apply text-white font-owners font-bold min-[1396px]:text-[30px] lg:text-[2.131vw] sm:text-[30px] text-[26px] leading-[1.2em] mb-[0.5em];
+        }
+
+        .text {
+            @apply text-[white] min-[1396px]:text-[20px] lg:text-[1.433vw] text-[20px]  leading-[1.3em] mb-[1em]; 
+        }
+    }
+
+    a.primary {
+        @apply min-[1396px]:text-[22px] min-[1396px]:px-[12px] lg:px-[3.5%] lg:text-[1.4vw] text-[22px] px-[12px];
+    }
+
+    &:last-child {
+        @apply md:ml-0 ml-auto;
+    }
+}

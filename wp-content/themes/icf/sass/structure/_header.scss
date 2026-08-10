@@ -1,0 +1,71 @@
+header.header {
+    @apply bg-copy md:h-[120px] h-auto flex justify-center fixed top-0 left-0 right-0 z-[100];
+
+    
+
+    .logo {
+        @apply lg:w-[16.666666%] md:w-[25%] md:visible invisible z-0 col-span-12 block mt-[50px] w-full h-auto absolute top-0 lg:left-[75px] left-[30px];
+        @apply md:pr-0 pr-[30px] !important;
+
+        svg {
+            @apply w-full h-auto overflow-visible;
+
+            #icf, #icfl {
+                @apply w-full;
+            }
+        }
+    }
+    
+    .mobile-logo {
+        @apply col-span-12 md:hidden block mt-[18px];
+
+        img {
+            @apply sm:max-w-[234px] max-w-[180px] w-full;
+        }
+    }
+
+    .nav-wrapper {
+        @apply col-span-12 md:col-span-9 md:col-start-4 lg:col-span-10 lg:col-start-3 flex justify-end;
+
+        .navigation {
+            @apply flex md:justify-end min-[400px]:justify-end justify-between items-end md:w-auto md:mr-0 -mr-[8px] w-[calc(100%+12px)] -ml-[4px] md:mx-0 md:mt-[0] -mt-[15px];
+
+            li.menu-item {
+                a {
+                    @apply text-icf-green block lg:text-[20px] md:text-[18px] sm:text-[20px] text-[16px]  font-bold lg:px-[16px] md:px-[12px] sm:px-[16px] px-[8px] md:py-[21px] py-[12px] duration-500 ease-out transition-colors hover:text-icf-coral;
+
+                    &.active {
+                        @apply text-icf-coral;
+                    }
+                }
+            }
+        }
+
+        .social {
+            @apply pl-[16px] flex items-end lg:pb-[27px] pb-[18px] lg:gap-[20px] gap-[10px] sm:static absolute top-[30px] right-[30px];
+
+            a {
+                @apply flex items-center justify-center border-[1px] border-icf-green aspect-[1/1] w-[32px] h-[32px] duration-500 ease-out transition-colors;
+
+                svg {
+                    @apply fill-icf-green w-[60%] duration-500 ease-out transition-colors;
+                }
+
+                &.facebook {
+                    @apply items-end;
+                    svg {
+                        @apply w-[48%]
+                    }
+                }
+
+                &:hover {
+                    @apply bg-icf-coral;
+
+                    svg {
+                        @apply fill-white;
+                    }
+                }
+            }
+        }
+    }
+}
