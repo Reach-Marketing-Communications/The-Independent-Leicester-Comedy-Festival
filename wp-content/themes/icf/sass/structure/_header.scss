@@ -1,5 +1,5 @@
 header.header {
-    @apply bg-copy md:h-[120px] h-auto flex justify-center fixed top-0 left-0 right-0 z-[100];
+    @apply bg-copy md:h-[120px] h-auto flex justify-center fixed top-0 left-0 right-0 z-[100] border-b-[6px] border-b-icf-green;
 
     
 
@@ -32,7 +32,7 @@ header.header {
 
             li.menu-item {
                 a {
-                    @apply text-icf-green block lg:text-[20px] md:text-[18px] sm:text-[20px] text-[16px]  font-bold lg:px-[16px] md:px-[12px] sm:px-[16px] px-[8px] md:py-[21px] py-[12px] duration-500 ease-out transition-colors hover:text-icf-coral;
+                    @apply text-icf-green block lg:text-[20px] md:text-[18px] sm:text-[20px] xsm:text-[16px] text-[13px]  font-bold lg:px-[16px] md:px-[8px] sm:px-[12px] px-[8px] md:py-[21px] py-[12px] duration-500 ease-out transition-colors hover:text-icf-coral;
 
                     &.active {
                         @apply text-icf-coral;

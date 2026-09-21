@@ -10,46 +10,85 @@ document.addEventListener("DOMContentLoaded", function(event) {
     window.addEventListener("load", function(e) {
 
         // ******************************************* Anchor Links Scrolling *******************************************/
-        // Detect if a link's href goes to the current page
-        function getSamePageAnchor (link) {
-            if (
-                link.protocol !== window.location.protocol ||
-                link.host !== window.location.host ||
-                link.pathname !== window.location.pathname ||
-                link.search !== window.location.search
-            ) {
-                return false;
-            }
+let currentScrollTween = null;
 
-            return link.hash;
+// Detect if a link's href goes to the current page
+function getSamePageAnchor(link) {
+    if (
+        link.protocol !== window.location.protocol ||
+        link.host !== window.location.host ||
+        link.pathname !== window.location.pathname ||
+        link.search !== window.location.search
+    ) {
+        return false;
+    }
+
+    return link.hash;
+}
+
+// Scroll to a given hash, preventing the default event
+function scrollToHash(hash, e) {
+    const elem = hash ? document.querySelector(hash) : false;
+    if (elem) {
+        if (e) e.preventDefault();
+
+        // Kill any existing scroll animation before starting a new one
+        if (currentScrollTween) {
+            currentScrollTween.kill();
         }
 
-        // Scroll to a given hash, preventing the event given if there is one
-        function scrollToHash(hash, e) {
-            const elem = hash ? document.querySelector(hash) : false;
-            if(elem) {
-                if(e) e.preventDefault();
-                gsap.to(window, {
-                    scrollTo: {
-                        y: elem,
-                        offsetY: 120,
-                        autoKill: true
-                    },
-                    ease: 'power4.out',
-                    duration: 1.5
-                });
+        currentScrollTween = gsap.to(window, {
+            scrollTo: {
+                y: elem,
+                offsetY: 120,
+                autoKill: false // Fully disabled inside GSAP to eliminate cross-browser quirks
+            },
+            ease: 'power4.out',
+            duration: 1.5,
+            onComplete: () => {
+                currentScrollTween = null;
+            },
+            onInterrupt: () => {
+                currentScrollTween = null;
             }
-        }
-
-        // If a link's href is within the current page, scroll to it instead
-        document.querySelectorAll('a[href]').forEach(a => {
-            a.addEventListener('click', e => {
-                scrollToHash(getSamePageAnchor(a), e);
-            });
         });
+    }
+}
 
-        // Scroll to the element in the URL's hash on load
-        scrollToHash(window.location.hash);
+// -----------------------------------------------------------------------------
+// Explicit User Interrupt Handlers (Replaces GSAP's native autoKill)
+// -----------------------------------------------------------------------------
+
+// Function to cancel the tween on genuine user interaction
+const cancelScrollOnInteraction = () => {
+    if (currentScrollTween) {
+        currentScrollTween.kill();
+        currentScrollTween = null;
+    }
+};
+
+// 1. Desktop: Mouse wheel scroll instantly cancels the animation (100% reliable on Firefox/Chrome/PC)
+window.addEventListener('wheel', cancelScrollOnInteraction, { passive: true });
+
+// 2. Desktop: Mouse drag on scrollbar or page cancel
+window.addEventListener('mousedown', cancelScrollOnInteraction, { passive: true });
+
+// 3. Mobile (iOS/Android): ONLY cancel if the user actively DRAGS/SWIPES their finger while scrolling
+// Using 'touchmove' instead of 'touchstart' prevents tap gestures or iOS viewport resizes from killing the animation
+window.addEventListener('touchmove', cancelScrollOnInteraction, { passive: true });
+
+// -----------------------------------------------------------------------------
+// Link Listeners & On-Load Trigger
+// -----------------------------------------------------------------------------
+
+document.querySelectorAll('a[href]').forEach(a => {
+    a.addEventListener('click', e => {
+        scrollToHash(getSamePageAnchor(a), e);
+    });
+});
+
+// Scroll to the element in the URL's hash on load
+scrollToHash(window.location.hash);
         
         // ***************************************************************************************************************/
 
@@ -168,8 +207,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 scrollTrigger: {
                     trigger: element,
                     start: 'top 90%',
-                    end: 'bottom 10%',
-                    toggleActions: 'play none none reverse'
+                    end: 'bottom 10%'
                 }
             });
         });
@@ -211,24 +249,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 
-        // split chars
-        const splitElements = gsap.utils.toArray(".splitChars");
-        splitElements.forEach((element) => {
-            const split = SplitText.create(element, { type: "chars" });
-            gsap.set(element, { autoAlpha: 1 });
-            gsap.from(split.chars, {
-                duration: 0.75,
-                y: 50,
-                autoAlpha: 0,
-                stagger: 0.02,
-                scrollTrigger: {
-                    trigger: element,
-                    start: 'top 90%',
-                    end: 'bottom 10%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
+        
 
         // split chars
         const splitChars = gsap.utils.toArray(".splitChars");
@@ -281,12 +302,49 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     start: 'top 90%',
                     end: 'bottom 10%',
                     toggleActions: 'play none none reverse'
+                },
+                onComplete: () => {
+                    split.revert(); // Restores the original unsplit HTML structure
+                }
+            });
+        });
+
+        gsap.utils.toArray('.fees-wrapper').forEach((parent) => {
+            const children = parent.querySelectorAll('.fee');
+            gsap.set(children, { autoAlpha: 1 });
+            gsap.from(children, {
+                autoAlpha: 0,
+                y: 50,
+                duration: 2,
+                ease: 'power4.out',
+                stagger: 0.35,
+                scrollTrigger: {
+                    trigger: parent,
+                    start: 'top 90%',
+                    end: 'bottom 10%',
+                    toggleActions: 'play none none reverse'
                 }
             });
         });
 
 
-
+        gsap.utils.toArray('.promoters-wrapper').forEach((parent) => {
+            const children = parent.querySelectorAll('.promoter');
+            gsap.set(children, { autoAlpha: 1 });
+            gsap.from(children, {
+                autoAlpha: 0,
+                y: 50,
+                duration: 2,
+                ease: 'power4.out',
+                stagger: 0.35,
+                scrollTrigger: {
+                    trigger: parent,
+                    start: 'top 90%',
+                    end: 'bottom 10%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
 
         gsap.utils.toArray('.widgets-wrapper').forEach((parent) => {
             const children = parent.querySelectorAll('.widget');
@@ -324,7 +382,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             });
         });
 
-        const sections = gsap.utils.toArray("section");
+        /*const sections = gsap.utils.toArray("section");
         const navLinks = gsap.utils.toArray(".header .navigation a");
         sections.forEach((section, index) => {
             ScrollTrigger.create({
@@ -336,7 +394,74 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     className: "active"
                 }
             });
+        });*/
+
+        const navLinks = gsap.utils.toArray(".header .navigation a");
+
+        // Extract ONLY the final ID slug regardless of protocol, domain, path, or hash format
+        const getTargetId = (link) => {
+            const href = link.getAttribute("href");
+            if (!href || href === "#" || href === "/") return null;
+
+            try {
+                // Parses "http://localhost:3000/#who", "/take-part", or "#who" relative to current window
+                const parsedUrl = new URL(href, window.location.origin);
+
+                // 1. If link contains a hash (e.g. "http://localhost:3000/#who" -> "who")
+                if (parsedUrl.hash) {
+                    return parsedUrl.hash.replace(/^#/, "").trim().toLowerCase();
+                }
+
+                // 2. If link is a path without hash (e.g. "http://localhost:3000/take-part" -> "take-part")
+                if (parsedUrl.pathname) {
+                    const pathSlug = parsedUrl.pathname.split("/").filter(Boolean).pop();
+                    return pathSlug ? pathSlug.toLowerCase() : null;
+                }
+            } catch (e) {
+                return null;
+            }
+
+            return null;
+        };
+
+        // Group links by their resolved ID target
+        const linksByTarget = {};
+
+        navLinks.forEach((link) => {
+            const targetId = getTargetId(link);
+            if (targetId) {
+                if (!linksByTarget[targetId]) linksByTarget[targetId] = [];
+                linksByTarget[targetId].push(link);
+            }
         });
+
+        // Create ScrollTriggers for matching IDs on current page
+        Object.keys(linksByTarget).forEach((targetId) => {
+            const targetElem = document.getElementById(targetId);
+
+            if (!targetElem) {
+                return;
+            }
+
+            const matchingLinks = linksByTarget[targetId];
+
+            ScrollTrigger.create({
+                trigger: targetElem,
+                start: "top 30%",
+                end: "bottom 30%",
+                onToggle: (self) => {
+                    matchingLinks.forEach((link) => {
+                        if (self.isActive) {
+                            link.classList.add("active");
+                        } else {
+                            link.classList.remove("active");
+                        }
+                    });
+                }
+            });
+        });
+
+        ScrollTrigger.refresh();
 
 
         gsap.utils.toArray('.contact-us form').forEach((parent) => {

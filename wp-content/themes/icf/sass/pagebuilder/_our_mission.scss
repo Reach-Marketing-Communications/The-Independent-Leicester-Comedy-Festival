@@ -4,17 +4,17 @@ section.our-mission {
     .inner-wrapper {
 
         .top-section {
-            @apply bg-copy sm:col-span-10 col-span-12 -ml-[100vw] pl-[100vw] flex items-end justify-between mb-[5em];
+            @apply bg-copy sm:col-span-10 col-span-12 min-[502px]:flex-nowrap flex-wrap -ml-[100vw] pl-[100vw] flex items-end min-[502px]:justify-between justify-end mb-[5em] sm:pr-0 pr-[5%];
 
             .title {
-                @apply font-owners font-bold text-white text-[clamp(55px,8.2vw,147px)] leading-[0.8em] my-[0.4em];
+                @apply font-owners font-bold text-white text-[clamp(50px,8.2vw,147px)] leading-[0.8em] my-[0.4em] w-full min-[502px]:w-auto;
             }
 
             .year {
-                @apply grow ml-[50px] translate-x-[10px];
+                @apply sm:grow min-[502px]:ml-[50px] sm:mr-0 min-[450px]:-mr-[20px] -mr-[10px];
 
                 .small-year {
-                    @apply text-icf-green font-owners font-bold text-[clamp(55px,9.25vw,147px)] leading-[0.7em] pl-[0.2em] border-b-[4px] border-b-icf-green pb-[0.2em] mb-[0.2em] mt-[2em];
+                    @apply text-icf-green font-owners font-bold text-[clamp(55px,9.25vw,147px)] leading-[0.7em] pl-[0.2em] border-b-[4px] border-b-icf-green pb-[0.2em] mb-[0.2em] min-[502px]:mt-[2em] mt-[0.25em] min-[502px]:translate-x-[7px] translate-x-[7px];
                 }
 
                 .big-year {
@@ -24,7 +24,7 @@ section.our-mission {
         }
 
         .intro {
-            @apply md:col-span-10 col-span-12 md:col-start-3 bg-white px-[8.33333%] py-[4.5%] relative md:mb-[100px] mb-[50px];
+            @apply md:col-span-10 col-span-12 md:col-start-3 bg-white px-[8.33333%] md:py-[4.5%] py-[30px] relative md:mb-[100px] mb-[50px];
 
             &:before {
                 @apply content-[""] bg-copy h-[15px] w-full top-0 left-[8.33333%] absolute -translate-y-full
@@ -35,7 +35,7 @@ section.our-mission {
             }
 
             p {
-                @apply max-w-[810px] text-copy lg:text-[36px] md:text-[30px] text-[24px] leading-[1.1em];
+                @apply max-w-[810px] text-copy lg:text-[36px] md:text-[30px] sm:text-[24px] text-[20px] leading-[1.1em];
             }
         }
 

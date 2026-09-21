@@ -22,8 +22,12 @@ body {
   @apply invisible;
 }
 
-a.primary {
-    @apply font-owners font-bold uppercase text-icf-blue block bg-icf-green px-[12px] pt-[13px] pb-[12px] text-[22px] leading-[1em] relative duration-300 ease-out transition-colors;
+a.primary, div.primary {
+    @apply font-owners font-bold uppercase text-icf-blue block bg-icf-green px-[12px] pt-[13px] pb-[12px] text-[22px] leading-[1em] relative duration-300 ease-out transition-colors cursor-pointer;
+
+    p {
+        @apply font-owners;
+    }
 
     span {
         @apply font-owners font-bold uppercase text-icf-coral duration-300 ease-out transition-colors;
@@ -63,6 +67,63 @@ a.primary {
 
     a {
         @apply flex items-end leading-[0.5em] gap-[10px] text-icf-green text-[24px];
+    }
+}
+
+
+.popup-form {
+    @apply hidden fixed top-0 left-0 w-full h-full items-center justify-center z-[1000];
+
+    .inner-popup {
+
+        @apply flex items-center justify-center h-screen w-screen;
+
+        .form-overlay {
+            @apply absolute top-0 left-0 w-full h-full z-[1001] bg-black/50;
+        }
+
+        
+
+        .form-wrapper {
+            @apply z-[1002] bg-icf-blue sm:p-[50px] p-[25px] rounded-[10px] relative w-[90%] max-w-[600px];
+            
+            .close {
+                @apply z-[1010] absolute right-[20px] top-[20px] w-[32px] h-[32px] bg-icf-green text-icf-blue duration-300 ease-out transition-colors hover:bg-icf-coral hover:text-white uppercase font-bold font-owners flex items-center justify-center rounded-[5px] cursor-pointer;
+            }
+
+            h3 {
+                @apply text-icf-green font-owners font-bold text-[37px] uppercase leading-[1.2em];
+            }
+
+            #mc_embed_signup {
+                @apply bg-transparent max-w-[104%];
+
+                form {
+                    @apply m-0 p-0 !important;
+
+                }
+
+                .indicates-required, .mc-field-group {
+                    @apply text-white text-[14px] !important;
+
+                    span {
+                        @apply text-icf-green !important;
+                    }
+                }
+
+                .button {
+                    @apply bg-icf-green text-icf-blue uppercase font-owners font-bold text-[20px] !important;
+                }
+
+                input {
+                    @apply text-copy;
+                }
+
+                #mce-responses {
+                    @apply mx-0 bg-icf-coral;
+                }
+            }
+        }
     }
 }
     

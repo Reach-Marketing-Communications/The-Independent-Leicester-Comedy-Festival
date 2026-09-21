@@ -1,0 +1,7 @@
+section.page-title {
+    @apply lg:pb-[100px] md:pb-[50px] pb-[30px] overflow-y-visible;
+
+    .inner-wrapper .intro-block h1 {
+        @apply text-[clamp(40px,5.2vw,100px)];
+    }
+}

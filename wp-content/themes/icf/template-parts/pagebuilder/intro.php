@@ -10,6 +10,7 @@ $promotor = $section['promotor_text'] ?? "";
 $template = get_bloginfo('template_url');
 
 echo <<<HTML
+<div>
     <section class="intro">
         <div class="inner-wrapper">
             <div class="background"><img src="{$template}/images/i-dot.svg" alt="background icon" /></div>
@@ -34,4 +35,14 @@ echo <<<HTML
             </div>
         </div>
 </section>
+
+
+<div class="popup-form customer-form">
+    <div class="form-overlay"></div>
+    <div class="form-wrapper">
+
+    </div>
+</div>
+
+
 HTML;

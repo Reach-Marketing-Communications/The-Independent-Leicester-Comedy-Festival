@@ -1,0 +1,42 @@
+section.fees {
+
+    @apply mt-[80px];
+
+    .inner-wrapper {
+        .content-section {
+
+            h3 {
+                @apply md:col-span-6 col-span-12 md:text-[36px] text-[28px];
+            }
+
+            .content {
+                @apply md:col-span-9 md:col-start-3 col-span-12 col-start-1 pr-[5%];
+
+                h4 {
+                    @apply md:text-[38px] text-[30px] leading-[1.1em]
+                }
+
+                .capacity {
+                    @apply text-[24px]
+                }
+
+                p {
+                    @apply md:text-[28px] text-[20px] max-w-none;
+                }
+            }
+
+            .fees-wrapper {
+                @apply md:flex mt-[40px] mb-[60px];
+
+                .fee {
+                    @apply md:border-r-[1px] md:border-r-copy md:last:border-r-0 md:border-b-0 border-b-[1px] border-b-copy mr-[3%] pr-[3%] md:mb-0 mb-[1.5em];
+
+                    .price {
+                        @apply font-bold text-[40px];
+                    }
+
+                }
+            }
+        }
+    }
+}

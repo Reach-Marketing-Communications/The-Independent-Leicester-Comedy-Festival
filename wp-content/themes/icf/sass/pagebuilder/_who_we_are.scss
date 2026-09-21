@@ -17,7 +17,7 @@ section.who-we-are {
             @apply xl:col-span-3 col-span-12 relative z-30 flex items-end;
 
             h2.title {
-                @apply font-owners font-bold text-[white] text-[clamp(75px,9.25vw,147px)] leading-[0.7em] xl:-mb-[2px] mb-[1em];
+                @apply font-owners font-bold text-[white] text-[clamp(55px,9.25vw,147px)] leading-[0.7em] xl:-mb-[2px] mb-[1em];
                 br {
                     @apply xl:block hidden;
                 }
@@ -35,7 +35,7 @@ section.who-we-are {
                 @apply max-w-[265px] relative;
 
                 &:after {
-                    @apply absolute content-[""] right-0 bottom-0 translate-x-full w-[40px] bg-copy h-[calc(100%-20px)];
+                    @apply absolute content-[""] right-0 bottom-0 translate-x-full sm:w-[40px] w-[20px] bg-copy h-[calc(100%-20px)];
                 }
             }
 

@@ -22,13 +22,20 @@ Author URI: https://www.reachmarketing.co.uk
 /********
  * Pagebuilder
  **/
+
 @import "pagebuilder/intro";
+@import "pagebuilder/page_title";
 @import "pagebuilder/who_we_are";
 @import "pagebuilder/our_mission";
+@import "pagebuilder/step_section";
+@import "pagebuilder/approved_promoters";
+@import "pagebuilder/promoters_applications";
+@import "pagebuilder/registration_fees";
 @import "pagebuilder/contact_us";
 
 /********
  * Cards
  **/
 @import "cards/widget";
+@import "cards/promoter";
 @import "cards/content_section";
